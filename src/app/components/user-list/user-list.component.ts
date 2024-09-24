@@ -1,7 +1,6 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
-import { Subject, takeUntil } from 'rxjs';
-import { User } from '../../models/user';
+import { Component, OnInit, signal } from '@angular/core';
 import { UserService } from '../../services/user.service';
+import { User } from '../../models/user';
 import { MessageService } from 'primeng/api';
 import { Router } from '@angular/router';
 
@@ -10,10 +9,8 @@ import { Router } from '@angular/router';
     templateUrl: './user-list.component.html',
     styleUrls: ['./user-list.component.css']
 })
-export class UserListComponent implements OnInit, OnDestroy {
-    users: User[] = [];
-    selectedUser: User | null = null;
-    private unsubscribe$ = new Subject<void>();
+export class UserListComponent implements OnInit {
+    users = signal<User[]>([]);
 
     constructor(
         private userService: UserService,
@@ -24,17 +21,10 @@ export class UserListComponent implements OnInit, OnDestroy {
         this.fetchUsers();
     }
 
-    ngOnDestroy() {
-        this.unsubscribe$.next();
-        this.unsubscribe$.complete();
-    }
-
     fetchUsers() {
-        this.userService.getUsers()
-        .pipe(takeUntil(this.unsubscribe$))
-        .subscribe({
+        this.userService.getUsers().subscribe({
             next: (data: User[]) => {
-                this.users = data;
+                this.users.set(data);
                 this.messageService.add({
                     severity: 'success',
                     summary: 'Users Loaded',
@@ -42,11 +32,13 @@ export class UserListComponent implements OnInit, OnDestroy {
                 });
             },
             error: (error: any) => {
-                this.messageService.add({
-                    severity: 'error',
-                    summary: 'Error',
-                    detail: 'Error loading users.'
-                });
+                if (error.status) {
+                    this.messageService.add({
+                        severity: 'error',
+                        summary: 'Users Not Found',
+                        detail: 'No users were found.'
+                    });
+                }
             }
         });
     }
