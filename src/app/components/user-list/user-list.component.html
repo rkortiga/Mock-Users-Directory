@@ -1,25 +1,36 @@
 <app-menu-bar></app-menu-bar>
 
-<div [ngStyle]="{backgroundColor:'var(--highlight-bg)', color: 'var(--highlight-text-color)', borderRadius: 'var(--border-radius)', padding: '3rem'}">
-      <ul *ngIf="users().length" class="p-card">
-            <li (click)="onSelectUser(user.id)" *ngFor="let user of users()" class="p-card-body">
-                  <div class="p-2">
-                        <p-iconField class="pi pi-user" style="margin-right: 8px;"></p-iconField>
-                        <p-header [style]="'font-weight: bold'">{{ user.name }}</p-header>
-                  </div>
-                  <div class="p-2">
-                        <p-iconField class="pi pi-inbox" style="margin-right: 8px;"></p-iconField>
-                        <p-header>Email: <a href="mailto:{{ user.email }}">{{ user.email }}</a></p-header>
-                  </div>
-                  <div class="p-2">
-                        <p-iconField class="pi pi-phone" style="margin-right: 8px;"></p-iconField>
-                        <p-header>Phone: {{ user.phone }}</p-header>
-                  </div>
-                  <div class="p-2">
-                        <p-iconField class="pi pi-globe" style="margin-right: 8px;"></p-iconField>
-                        <p-header>Website: <a href="http://{{ user.website }}" target="_blank">{{ user.website }}</a>
-                        </p-header>
-                  </div>
-            </li>
-      </ul>
+<div
+        [ngStyle]="{backgroundColor: 'var(--highlight-bg)', color: 'var(--highlight-text-color)', borderRadius: 'var(--border-radius)', padding: '3rem'}"
+        class="w-full"
+>
+      <div class="card">
+            <p-table
+                    [paginator]="true"
+                    [rowsPerPageOptions]="[10, 20, 50]"
+                    [rows]="5"
+                    [tableStyle]="{ 'min-width': '50rem' }"
+                    [value]="users()"
+                    class="w-full"
+            >
+
+                  <ng-template pTemplate="header">
+                        <tr>
+                              <th style="text-align: center; width: 25rem">Name</th>
+                              <th style="text-align: center; width: 40rem">Email</th>
+                              <th style="text-align: center; width: 40rem">Phone</th>
+                        </tr>
+                  </ng-template>
+
+                  <ng-template let-user pTemplate="body">
+                        <tr (click)="onSelectUser(user.id)" style="cursor: pointer; text-align: center">
+                              <td style="text-align: center">{{ user.name }}</td>
+                              <td style="text-align: center">
+                                    <a href="mailto:{{ user.email }}">{{ user.email }}</a>
+                              </td>
+                              <td style="text-align: center">{{ user.phone }}</td>
+                        </tr>
+                  </ng-template>
+            </p-table>
+      </div>
 </div>

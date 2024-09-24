@@ -25,6 +25,7 @@ import { Ripple } from 'primeng/ripple';
 import { InputTextModule } from 'primeng/inputtext';
 import { ToastModule } from 'primeng/toast';
 import { DialogService } from 'primeng/dynamicdialog';
+import { TableModule } from 'primeng/table';
 
 @NgModule({
     declarations: [
@@ -52,7 +53,8 @@ import { DialogService } from 'primeng/dynamicdialog';
         Ripple,
         ButtonDirective,
         InputTextModule,
-        ToastModule
+        ToastModule,
+        TableModule
     ],
     providers: [
         provideClientHydration(),
