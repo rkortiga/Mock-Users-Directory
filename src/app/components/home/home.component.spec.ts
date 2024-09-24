@@ -1,23 +1,34 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { HomeComponent } from './home.component';
+import { MenuBarComponent } from '../menu-bar/menu-bar.component';
+import { MenubarModule } from 'primeng/menubar';
+import { of } from 'rxjs';
+import { ActivatedRoute } from '@angular/router';
 
 describe('HomeComponent', () => {
-  let component: HomeComponent;
-  let fixture: ComponentFixture<HomeComponent>;
+    let component: HomeComponent;
+    let fixture: ComponentFixture<HomeComponent>;
 
-  beforeEach(async () => {
-    await TestBed.configureTestingModule({
-      declarations: [HomeComponent]
-    })
-    .compileComponents();
+    const mockActivatedRoute = {
+        params: of({id: 123}),
+        snapshot: {params: {id: 123}}
+    };
 
-    fixture = TestBed.createComponent(HomeComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
-  });
+    beforeEach(async () => {
+        await TestBed.configureTestingModule({
+            imports: [MenubarModule],
+            declarations: [HomeComponent, MenuBarComponent],
+            providers: [{provide: ActivatedRoute, useValue: mockActivatedRoute}]
+        })
+        .compileComponents();
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
-  });
+        fixture = TestBed.createComponent(HomeComponent);
+        component = fixture.componentInstance;
+        fixture.detectChanges();
+    });
+
+    it('should create', () => {
+        expect(component).toBeTruthy();
+    });
 });
