@@ -6,6 +6,13 @@ import { AppComponent } from './app.component';
 import { UserListComponent } from './components/user-list/user-list.component';
 import { UserDetailsComponent } from './components/user-details/user-details.component';
 import { provideHttpClient, withFetch } from '@angular/common/http';
+import { MessageService } from 'primeng/api';
+import { DialogModule } from 'primeng/dialog';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { FieldsetModule } from 'primeng/fieldset';
+import { FloatLabelModule } from 'primeng/floatlabel';
+import { DividerModule } from 'primeng/divider';
+import { IconFieldModule } from 'primeng/iconfield';
 
 @NgModule({
     declarations: [
@@ -15,11 +22,18 @@ import { provideHttpClient, withFetch } from '@angular/common/http';
     ],
     imports: [
         BrowserModule,
-        AppRoutingModule
+        AppRoutingModule,
+        DialogModule,
+        BrowserAnimationsModule,
+        FieldsetModule,
+        FloatLabelModule,
+        DividerModule,
+        IconFieldModule
     ],
     providers: [
         provideClientHydration(),
-        provideHttpClient(withFetch())
+        provideHttpClient(withFetch()),
+        MessageService
     ],
     bootstrap: [AppComponent]
 })
