@@ -2,3 +2,44 @@
     margin-top: 0.5rem;
     padding: 1.5rem;
 }
+
+.address-section {
+    margin-bottom: 20px;
+}
+
+.section-title {
+    font-weight: bold;
+    font-size: 1.2rem;
+    margin-bottom: 15px;
+}
+
+.address-details {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.address-item {
+    margin-bottom: 10px;
+    margin-top: 15px;
+}
+
+.italic {
+    font-style: italic;
+}
+
+.geolocation-title {
+    font-weight: bold;
+    margin-top: 15px;
+    margin-bottom: 10px;
+}
+
+.geo-details {
+    display: flex;
+    gap: 20px;
+}
+
+.geo-item {
+    margin-bottom: 10px;
+}
+
