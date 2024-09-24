@@ -13,12 +13,17 @@ import { FieldsetModule } from 'primeng/fieldset';
 import { FloatLabelModule } from 'primeng/floatlabel';
 import { DividerModule } from 'primeng/divider';
 import { IconFieldModule } from 'primeng/iconfield';
+import { MenuBarComponent } from './components/menu-bar/menu-bar.component';
+import { HomeComponent } from './components/home/home.component';
+import { MenubarModule } from 'primeng/menubar';
 
 @NgModule({
     declarations: [
         AppComponent,
         UserListComponent,
-        UserDetailsComponent
+        UserDetailsComponent,
+        MenuBarComponent,
+        HomeComponent
     ],
     imports: [
         BrowserModule,
@@ -28,7 +33,8 @@ import { IconFieldModule } from 'primeng/iconfield';
         FieldsetModule,
         FloatLabelModule,
         DividerModule,
-        IconFieldModule
+        IconFieldModule,
+        MenubarModule
     ],
     providers: [
         provideClientHydration(),
