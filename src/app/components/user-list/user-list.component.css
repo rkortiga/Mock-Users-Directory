@@ -6,9 +6,17 @@ ul {
 .p-card-body {
     border: 1px solid #424b57;
     padding: 20px;
-    margin-bottom: 5px;
+    margin: 10px;
     border-radius: 5px;
     background-color: #424b57;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    word-wrap: break-word;
+    overflow: hidden;
+}
+
+.p-card-body:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
 }
 
 h3 {
