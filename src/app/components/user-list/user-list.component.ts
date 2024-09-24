@@ -1,5 +1,5 @@
 import { Component, OnInit, signal } from '@angular/core';
-import { UserService } from '../../services/user.service';
+import { UserService } from '../../services/user-service/user.service';
 import { User } from '../../models/user';
 import { MessageService } from 'primeng/api';
 import { Router } from '@angular/router';

@@ -17,6 +17,14 @@ import { MenuBarComponent } from './components/menu-bar/menu-bar.component';
 import { HomeComponent } from './components/home/home.component';
 import { MenubarModule } from 'primeng/menubar';
 import { CardModule } from 'primeng/card';
+import { LoginComponent } from './components/login/login.component';
+import { FormsModule } from '@angular/forms';
+import { CheckboxModule } from 'primeng/checkbox';
+import { Button, ButtonDirective } from 'primeng/button';
+import { Ripple } from 'primeng/ripple';
+import { InputTextModule } from 'primeng/inputtext';
+import { ToastModule } from 'primeng/toast';
+import { DialogService } from 'primeng/dynamicdialog';
 
 @NgModule({
     declarations: [
@@ -24,7 +32,8 @@ import { CardModule } from 'primeng/card';
         UserListComponent,
         UserDetailsComponent,
         MenuBarComponent,
-        HomeComponent
+        HomeComponent,
+        LoginComponent
     ],
     imports: [
         BrowserModule,
@@ -36,12 +45,20 @@ import { CardModule } from 'primeng/card';
         DividerModule,
         IconFieldModule,
         MenubarModule,
-        CardModule
+        CardModule,
+        FormsModule,
+        CheckboxModule,
+        Button,
+        Ripple,
+        ButtonDirective,
+        InputTextModule,
+        ToastModule
     ],
     providers: [
         provideClientHydration(),
         provideHttpClient(withFetch()),
-        MessageService
+        MessageService,
+        DialogService
     ],
     bootstrap: [AppComponent]
 })
