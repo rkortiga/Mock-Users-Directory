@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MenuItem } from 'primeng/api';
-import { UserService } from '../../services/user.service';
 import { Router } from "@angular/router";
+import { AuthService } from '../../services/auth-service/auth.service';
 
 @Component({
     selector: 'app-menu-bar',
@@ -12,7 +12,7 @@ export class MenuBarComponent implements OnInit {
     items: MenuItem[] | undefined;
 
     constructor(
-        private userService: UserService,
+        private authService: AuthService,
         private router: Router
     ) {}
 
@@ -25,7 +25,7 @@ export class MenuBarComponent implements OnInit {
     }
 
     logout() {
+        this.authService.logout();
         this.router.navigate(['/login']);
     }
-
 }

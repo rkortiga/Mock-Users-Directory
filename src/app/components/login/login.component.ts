@@ -1,25 +1,26 @@
 import { Component } from '@angular/core';
 import { MessageService } from 'primeng/api';
 import { Router } from '@angular/router';
+import { AuthService } from '../../services/auth-service/auth.service';
 
 @Component({
     selector: 'app-login',
     templateUrl: './login.component.html',
-    styleUrl: './login.component.css'
+    styleUrls: ['./login.component.css']
 })
 export class LoginComponent {
     username: string = '';
     password: string = '';
     rememberMe: boolean = false;
 
-    // Hardcoded credentials
-    private readonly validUsername = 'testuser123';
-    private readonly validPassword = 'str0ngp@ssword!';
-
-    constructor(private messageService: MessageService, private router: Router) {}
+    constructor(
+        private messageService: MessageService,
+        private router: Router,
+        private authService: AuthService
+    ) {}
 
     onLogin() {
-        if (this.username === this.validUsername && this.password === this.validPassword) {
+        if (this.authService.login(this.username, this.password)) {
             this.messageService.add({severity: 'success', summary: 'Login Successful', detail: 'Welcome back!'});
             this.router.navigate(['/home']);
         } else {
