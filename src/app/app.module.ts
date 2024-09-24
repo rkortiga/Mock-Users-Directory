@@ -16,6 +16,7 @@ import { IconFieldModule } from 'primeng/iconfield';
 import { MenuBarComponent } from './components/menu-bar/menu-bar.component';
 import { HomeComponent } from './components/home/home.component';
 import { MenubarModule } from 'primeng/menubar';
+import { CardModule } from 'primeng/card';
 
 @NgModule({
     declarations: [
@@ -34,7 +35,8 @@ import { MenubarModule } from 'primeng/menubar';
         FloatLabelModule,
         DividerModule,
         IconFieldModule,
-        MenubarModule
+        MenubarModule,
+        CardModule
     ],
     providers: [
         provideClientHydration(),

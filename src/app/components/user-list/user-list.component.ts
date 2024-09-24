@@ -3,6 +3,7 @@ import { Subject, takeUntil } from 'rxjs';
 import { User } from '../../models/user';
 import { UserService } from '../../services/user.service';
 import { MessageService } from 'primeng/api';
+import { Router } from '@angular/router';
 
 @Component({
     selector: 'app-user-list',
@@ -14,7 +15,10 @@ export class UserListComponent implements OnInit, OnDestroy {
     selectedUser: User | null = null;
     private unsubscribe$ = new Subject<void>();
 
-    constructor(private userService: UserService, private messageService: MessageService) {}
+    constructor(
+        private userService: UserService,
+        private messageService: MessageService,
+        private router: Router) {}
 
     ngOnInit() {
         this.fetchUsers();
@@ -47,7 +51,7 @@ export class UserListComponent implements OnInit, OnDestroy {
         });
     }
 
-    onSelectUser(user: User, userId: number) {
-        this.selectedUser = user;
+    onSelectUser(userId: number) {
+        this.router.navigate(['/user', userId]);
     }
 }

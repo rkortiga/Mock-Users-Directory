@@ -19,7 +19,7 @@ const routes: Routes = [
         component: UserListComponent,
     },
     {
-        path: 'user-details',
+        path: 'user/:id',
         component: UserDetailsComponent,
     },
 ];
