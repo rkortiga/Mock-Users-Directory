@@ -3,12 +3,12 @@ ul {
     padding: 0;
 }
 
-.user-card {
-    border: 1px solid #ddd;
+.p-card-body {
+    border: 1px solid #424b57;
     padding: 15px;
-    margin-bottom: 15px;
+    margin-bottom: 5px;
     border-radius: 5px;
-    background-color: #f9f9f9;
+    background-color: #424b57;
 }
 
 h3 {
