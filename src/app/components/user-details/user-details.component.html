@@ -20,6 +20,13 @@
                   <p-divider></p-divider>
 
                   <div class="p-2">
+                        <p-floatLabel style="font-weight: bold">Company:</p-floatLabel>
+                        <p>{{ selectedUser?.company?.name }}</p>
+                        
+                  </div>
+                  <p-divider></p-divider>
+
+                  <div class="p-2">
                         <p-floatLabel style="font-weight: bold">Website:</p-floatLabel>
                         <p><a href="http://{{ selectedUser?.website }}" target="_blank">{{ selectedUser?.website }}</a>
                         </p>

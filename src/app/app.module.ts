@@ -17,6 +17,7 @@ import { MenuBarComponent } from './components/menu-bar/menu-bar.component';
 import { HomeComponent } from './components/home/home.component';
 import { MenubarModule } from 'primeng/menubar';
 import { CardModule } from 'primeng/card';
+import { LoginComponent } from './components/login/login.component';
 
 @NgModule({
     declarations: [
@@ -24,7 +25,8 @@ import { CardModule } from 'primeng/card';
         UserListComponent,
         UserDetailsComponent,
         MenuBarComponent,
-        HomeComponent
+        HomeComponent,
+        LoginComponent
     ],
     imports: [
         BrowserModule,
