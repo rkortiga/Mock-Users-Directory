@@ -1,3 +1,5 @@
+<app-menu-bar></app-menu-bar>
+
 <div [ngStyle]="{backgroundColor:'var(--highlight-bg)', color: 'var(--highlight-text-color)', borderRadius: 'var(--border-radius)', padding: '3rem'}">
       <ul *ngIf="users.length" class="p-card">
             <li (click)="onSelectUser(user.id)" *ngFor="let user of users" class="p-card-body">

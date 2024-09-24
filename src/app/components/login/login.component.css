@@ -1,0 +1,30 @@
+body {
+    background-color: #343a40;
+}
+
+.login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.login-card-body {
+    max-width: 400px;
+    width: 100%;
+    border-radius: 12px;
+    background-color: #343a40;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    padding: 0.1rem;
+}
+
+.login-card-body .text-900 {
+    color: #f8f9fa;
+}
+
+@media (max-width: 600px) {
+    .login-card-body {
+        max-width: 95%;
+        padding: 0.2rem;
+    }
+}

@@ -20,8 +20,12 @@ export class MenuBarComponent implements OnInit {
         this.items = [
             {label: 'Home', icon: 'pi pi-home', route: '/home'},
             {label: 'Users', icon: 'pi pi-user', route: '/users'},
-            {label: 'Logout', icon: 'pi pi-sign-out', /*command: () => this.logout()*/}
+            {label: 'Logout', icon: 'pi pi-sign-out', command: () => this.logout()}
         ];
+    }
+
+    logout() {
+        this.router.navigate(['/login']);
     }
 
 }

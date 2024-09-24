@@ -18,6 +18,13 @@ import { HomeComponent } from './components/home/home.component';
 import { MenubarModule } from 'primeng/menubar';
 import { CardModule } from 'primeng/card';
 import { LoginComponent } from './components/login/login.component';
+import { FormsModule } from '@angular/forms';
+import { CheckboxModule } from 'primeng/checkbox';
+import { Button, ButtonDirective } from 'primeng/button';
+import { Ripple } from 'primeng/ripple';
+import { InputTextModule } from 'primeng/inputtext';
+import { ToastModule } from 'primeng/toast';
+import { DialogService } from 'primeng/dynamicdialog';
 
 @NgModule({
     declarations: [
@@ -38,12 +45,20 @@ import { LoginComponent } from './components/login/login.component';
         DividerModule,
         IconFieldModule,
         MenubarModule,
-        CardModule
+        CardModule,
+        FormsModule,
+        CheckboxModule,
+        Button,
+        Ripple,
+        ButtonDirective,
+        InputTextModule,
+        ToastModule
     ],
     providers: [
         provideClientHydration(),
         provideHttpClient(withFetch()),
-        MessageService
+        MessageService,
+        DialogService
     ],
     bootstrap: [AppComponent]
 })
