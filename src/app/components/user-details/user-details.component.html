@@ -1,21 +1,22 @@
 <app-menu-bar></app-menu-bar>
 <div class="p-card user-details-card">
-      <div *ngIf="selectedUser" class="p-toggleable-content flex-wrap">
-            <p-fieldset legend="{{ selectedUser.name }}">
+      <div *ngIf="selectedUser()" class="p-toggleable-content flex-wrap">
+            <p-fieldset legend="{{ selectedUser()?.name }}">
                   <div class="p-2">
                         <p-floatLabel style="font-weight: bold">User Name:</p-floatLabel>
-                        <p>{{ selectedUser.username }}</p>
+                        <p>{{ selectedUser()?.username }}</p>
                   </div>
                   <p-divider></p-divider>
 
                   <div class="p-2">
                         <p-floatLabel style="font-weight: bold">Email:</p-floatLabel>
-                        <p><a href="mailto:{{ selectedUser.email }}">{{ selectedUser.email }}</a></p>
+                        <p><a href="mailto:{{ selectedUser()?.email }}">{{ selectedUser()?.email }}</a></p>
                   </div>
                   <p-divider></p-divider>
 
                   <div class="p-2">
                         <p-floatLabel style="font-weight: bold">Phone:</p-floatLabel>
+                        <p>{{ selectedUser()?.phone }}</p>
                         <p>{{ selectedUser.phone }}</p>
                   </div>
                   <p-divider></p-divider>
@@ -29,8 +30,9 @@
 
                   <div class="p-2">
                         <p-floatLabel style="font-weight: bold">Website:</p-floatLabel>
-                        <p><a href="http://{{ selectedUser.website }}" target="_blank">{{ selectedUser.website }}</a>
-                        </p>
+                        <p><a href="http://{{ selectedUser()?.website }}" target="_blank">{{
+                                    selectedUser()?.website
+                              }}</a></p>
                   </div>
                   <p-divider></p-divider>
 
@@ -39,20 +41,21 @@
                         <div class="address-details">
                               <div class="address-item">
                                     <p-floatLabel>Street: <span class="italic">{{
-                                                selectedUser.address.street
+                                                selectedUser()?.address?.street
                                           }}</span></p-floatLabel>
                               </div>
                               <div class="address-item">
-                                    <p-floatLabel>Suite: <span class="italic">{{ selectedUser.address.suite }}</span>
-                                    </p-floatLabel>
+                                    <p-floatLabel>Suite: <span class="italic">{{
+                                                selectedUser()?.address?.suite
+                                          }}</span></p-floatLabel>
                               </div>
                               <div class="address-item">
-                                    <p-floatLabel>City: <span class="italic">{{ selectedUser.address.city }}</span>
+                                    <p-floatLabel>City: <span class="italic">{{ selectedUser()?.address?.city }}</span>
                                     </p-floatLabel>
                               </div>
                               <div class="address-item">
                                     <p-floatLabel>Zipcode: <span class="italic">{{
-                                                selectedUser.address.zipcode
+                                                selectedUser()?.address?.zipcode
                                           }}</span></p-floatLabel>
                               </div>
 
@@ -60,12 +63,12 @@
                               <div class="geo-details">
                                     <div class="geo-item">
                                           <p-floatLabel>Latitude: <span class="italic">{{
-                                                      selectedUser.address.geo.lat
+                                                      selectedUser()?.address?.geo?.lat
                                                 }}</span></p-floatLabel>
                                     </div>
                                     <div class="geo-item">
                                           <p-floatLabel>Longitude: <span class="italic">{{
-                                                      selectedUser.address.geo.lng
+                                                      selectedUser()?.address?.geo?.lng
                                                 }}</span></p-floatLabel>
                                     </div>
                               </div>

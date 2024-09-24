@@ -17,6 +17,10 @@ export class MenuBarComponent implements OnInit {
     ) {}
 
     ngOnInit() {
+        this.initializeItems();
+    }
+
+    initializeItems() {
         this.items = [
             {label: 'Home', icon: 'pi pi-home', route: '/home'},
             {label: 'Users', icon: 'pi pi-user', route: '/users'},
