@@ -62,9 +62,9 @@ describe('UserDetailsComponent', () => {
             ],
             declarations: [UserDetailsComponent, MenuBarComponent],
             providers: [
-                {provide: ActivatedRoute, useValue: mockActivatedRoute},  // Provide mock ActivatedRoute
-                {provide: UserService, useValue: mockUserService},  // Mock the UserService
-                {provide: MessageService, useValue: mockMessageService}  // Mock the MessageService
+                {provide: ActivatedRoute, useValue: mockActivatedRoute},
+                {provide: UserService, useValue: mockUserService},
+                {provide: MessageService, useValue: mockMessageService}
             ]
         }).compileComponents();
 
