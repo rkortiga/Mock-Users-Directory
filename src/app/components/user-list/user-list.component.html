@@ -1,10 +1,6 @@
-<!--<div *ngIf="!users.length">
-      <p *ngIf="loading">Loading users...</p>
-      <p *ngIf="!loading && !users.length">No users available.</p>
-</div>-->
 <div [ngStyle]="{backgroundColor:'var(--highlight-bg)', color: 'var(--highlight-text-color)', borderRadius: 'var(--border-radius)', padding: '3rem'}">
       <ul *ngIf="users.length" class="p-card">
-            <li (click)="viewUser(user, user.id)" *ngFor="let user of users" class="p-card-body">
+            <li (click)="onSelectUser(user, user.id)" *ngFor="let user of users" class="p-card-body">
                   <div class="p-2">
                         <p-iconField class="pi pi-user" style="margin-right: 8px;"></p-iconField>
                         <p-header [style]="'font-weight: bold'">{{ user.name }}</p-header>
@@ -17,52 +13,13 @@
                         <p-iconField class="pi pi-phone" style="margin-right: 8px;"></p-iconField>
                         <p-header>Phone: {{ user.phone }}</p-header>
                   </div>
-
                   <div class="p-2">
                         <p-iconField class="pi pi-globe" style="margin-right: 8px;"></p-iconField>
                         <p-header>Website: <a href="http://{{ user.website }}" target="_blank">{{ user.website }}</a>
                         </p-header>
                   </div>
-                  
             </li>
       </ul>
 </div>
 
-<p-dialog [(visible)]="displayUserModal" [modal]="true" [style]="{ width: '50rem' }">
-      <div class="p-toggleable-content flex-wrap">
-            <p-fieldset legend="{{ selectedUser?.name }}">
-                  <div class="p-2">
-                        <p-floatLabel style="font-weight: bold"> User Name:</p-floatLabel>
-                        <p>{{ selectedUser?.username }}</p>
-                  </div>
-                  <p-divider></p-divider>
-
-                  <div class="p-2">
-                        <p-floatLabel style="font-weight: bold"> Email:</p-floatLabel>
-                        <p><a href="mailto:{{ selectedUser?.email }}">{{ selectedUser?.email }}</a></p>
-                  </div>
-                  <p-divider></p-divider>
-
-                  <div class="p-2">
-                        <p-floatLabel style="font-weight: bold"> Phone:</p-floatLabel>
-                        <p>{{ selectedUser?.phone }}</p>
-                  </div>
-                  <p-divider></p-divider>
-
-                  <div class="p-2">
-                        <p-floatLabel style="font-weight: bold"> Website:</p-floatLabel>
-                        <p><a href="http://{{ selectedUser?.website }}" target="_blank">{{ selectedUser?.website }}</a>
-                        </p>
-                  </div>
-                  <p-divider></p-divider>
-
-                  <div class="p-2">
-                        <p-floatLabel style="font-weight: bold"> Address:</p-floatLabel>
-                        <p>{{ selectedUser?.address?.suite }}, {{ selectedUser?.address?.street }}, {{
-                                    selectedUser?.address?.city
-                              }}, {{ selectedUser?.address?.zipcode }}</p>
-                  </div>
-
-            </p-fieldset>
-      </div>
-</p-dialog>
+<app-user-details [selectedUser]="selectedUser"></app-user-details>
