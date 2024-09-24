@@ -1,18 +1,16 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, OnInit, signal } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { UserService } from '../../services/user.service';
 import { User } from '../../models/user';
-import { Subject, takeUntil } from 'rxjs';
 import { MessageService } from 'primeng/api';
 
 @Component({
     selector: 'app-user-details',
     templateUrl: './user-details.component.html',
-    styleUrl: './user-details.component.css'
+    styleUrls: ['./user-details.component.css']
 })
-export class UserDetailsComponent implements OnInit, OnDestroy {
-    selectedUser: User | null = null;
-    private unsubscribe$ = new Subject<void>();
+export class UserDetailsComponent implements OnInit {
+    selectedUser = signal<User | null>(null);
 
     constructor(
         private route: ActivatedRoute,
@@ -24,18 +22,12 @@ export class UserDetailsComponent implements OnInit, OnDestroy {
         this.getUserDetails();
     }
 
-    ngOnDestroy() {
-        this.unsubscribe$.next();
-        this.unsubscribe$.complete();
-    }
-
     getUserDetails() {
         const userId = this.route.snapshot.paramMap.get('id');
         if (userId) {
-            this.userService.getUserById(+userId).pipe(takeUntil(this.unsubscribe$))
-            .subscribe({
+            this.userService.getUserById(+userId).subscribe({
                 next: (data: User) => {
-                    this.selectedUser = data;
+                    this.selectedUser.set(data);
                 },
                 error: (error: any) => {
                     if (error.status === 404) {
