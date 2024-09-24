@@ -29,8 +29,24 @@ export class UserListComponent implements OnInit, OnDestroy {
     fetchUsers() {
         this.userService.getUsers()
         .pipe(takeUntil(this.unsubscribe$))
-        .subscribe((data: User[]) => {
-            this.users = data;
+        .subscribe({
+            next: (data: User[]) => {
+                this.users = data;
+                this.messageService.add({
+                    severity: 'success',
+                    summary: 'Users Loaded',
+                    detail: 'Users have been successfully loaded.'
+                });
+            },
+            error: (error: any) => {
+                if (error === 'error') {
+                    this.messageService.add({
+                        severity: 'error',
+                        summary: 'Error',
+                        detail: 'Error loading users.',
+                    });
+                }
+            }
         });
     }
 
@@ -39,9 +55,20 @@ export class UserListComponent implements OnInit, OnDestroy {
         this.displayUserModal = true;
         this.userService.getUserById(userId)
         .pipe(takeUntil(this.unsubscribe$))
-        .subscribe((data: User) => {
-            this.selectedUser = data;
-            this.displayUserModal = true;
+        .subscribe({
+            next: (data: User) => {
+                this.selectedUser = data;
+                this.displayUserModal = true;
+            },
+            error: (error: any) => {
+                if (error === 'error') {
+                    this.messageService.add({
+                        severity: 'error',
+                        summary: 'Error',
+                        detail: 'Error loading user details.',
+                    });
+                }
+            }
         });
     }
 }
