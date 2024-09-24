@@ -17,13 +17,12 @@
                   <div class="p-2">
                         <p-floatLabel style="font-weight: bold">Phone:</p-floatLabel>
                         <p>{{ selectedUser()?.phone }}</p>
-                        <p>{{ selectedUser.phone }}</p>
                   </div>
                   <p-divider></p-divider>
 
                   <div class="p-2">
                         <p-floatLabel style="font-weight: bold">Company:</p-floatLabel>
-                        <p>{{ selectedUser.company.name }}</p>
+                        <p>{{ selectedUser()?.company?.name }}</p>
 
                   </div>
                   <p-divider></p-divider>
