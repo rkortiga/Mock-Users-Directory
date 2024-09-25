@@ -34,3 +34,32 @@ a:hover {
     text-decoration: underline;
 }
 
+.search-container {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 1rem;
+    padding: 0.5rem;
+}
+
+.search-icon {
+    font-size: 1.0rem;
+    margin-right: 0.5rem;
+    color: var(--primary-color);
+}
+
+.search-input {
+    width: 100%;
+    max-width: 300px;
+    padding: 0.75rem 1rem;
+    border-radius: 5px;
+    border: 1px solid var(--input-border-color);
+    background-color: var(--input-bg-color);
+    color: var(--text-color);
+}
+
+.search-input::placeholder {
+    color: var(--placeholder-color);
+}
+
+

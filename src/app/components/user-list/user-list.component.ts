@@ -1,8 +1,9 @@
-import { Component, OnInit, signal } from '@angular/core';
+import { Component, OnInit, signal, ViewChild } from '@angular/core';
 import { UserService } from '../../services/user-service/user.service';
 import { User } from '../../models/user';
 import { MessageService } from 'primeng/api';
 import { Router } from '@angular/router';
+import { Table } from 'primeng/table';
 
 @Component({
     selector: 'app-user-list',
@@ -10,6 +11,7 @@ import { Router } from '@angular/router';
     styleUrls: ['./user-list.component.css']
 })
 export class UserListComponent implements OnInit {
+    @ViewChild('dt') dataTable!: Table;
     users = signal<User[]>([]);
 
     constructor(
@@ -32,18 +34,21 @@ export class UserListComponent implements OnInit {
                 });
             },
             error: (error: any) => {
-                if (error.status) {
-                    this.messageService.add({
-                        severity: 'error',
-                        summary: 'Users Not Found',
-                        detail: 'No users were found.'
-                    });
-                }
+                this.messageService.add({
+                    severity: 'error',
+                    summary: 'Users Not Found',
+                    detail: 'No users were found.'
+                });
             }
         });
     }
 
     onSelectUser(userId: number) {
         this.router.navigate(['/user', userId]);
+    }
+
+    setGlobalFilter(event: any) {
+        const inputValue = event.target.value;
+        this.dataTable.filterGlobal(inputValue, 'contains');
     }
 }

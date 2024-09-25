@@ -1,11 +1,13 @@
 <app-menu-bar></app-menu-bar>
 
 <div
-        [ngStyle]="{backgroundColor: 'var(--highlight-bg)', color: 'var(--highlight-text-color)', borderRadius: 'var(--border-radius)', padding: '3rem'}"
+        [ngStyle]="{ backgroundColor: 'var(--highlight-bg)', color: 'var(--highlight-text-color)', borderRadius: 'var(--border-radius)', padding: '3rem' }"
         class="w-full"
 >
       <div class="card">
             <p-table
+                    #dt
+                    [globalFilterFields]="['name', 'email', 'phone']"
                     [paginator]="true"
                     [rowsPerPageOptions]="[10, 20, 50]"
                     [rows]="5"
@@ -13,6 +15,18 @@
                     [value]="users()"
                     class="w-full"
             >
+                  <ng-template pTemplate="caption">
+                        <div class="search-container">
+                              <span class="pi pi-search search-icon"></span>
+                              <input
+                                      (input)="setGlobalFilter($event)"
+                                      class="search-input"
+                                      pInputText
+                                      placeholder="Search"
+                                      type="text"
+                              />
+                        </div>
+                  </ng-template>
 
                   <ng-template pTemplate="header">
                         <tr>
@@ -23,7 +37,10 @@
                   </ng-template>
 
                   <ng-template let-user pTemplate="body">
-                        <tr (click)="onSelectUser(user.id)" style="cursor: pointer; text-align: center">
+                        <tr
+                                (click)="onSelectUser(user.id)"
+                                style="cursor: pointer; text-align: center"
+                        >
                               <td style="text-align: center">{{ user.name }}</td>
                               <td style="text-align: center">
                                     <a href="mailto:{{ user.email }}">{{ user.email }}</a>

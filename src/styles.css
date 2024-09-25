@@ -2,3 +2,15 @@
 @import "primeng/resources/primeng.css";
 @import "primeicons/primeicons.css";
 @import "primeflex/primeflex.css";
+
+
+:root {
+    --input-border-color: #565656;
+    --input-bg-color: #363636;
+    --text-color: #333;
+    --placeholder-color: #999;
+    --primary-color: #007bff;
+    --highlight-bg: #2c3e50;
+    --highlight-text-color: #ecf0f1;
+    --border-radius: 4px;
+}
