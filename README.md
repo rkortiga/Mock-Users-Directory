@@ -5,9 +5,8 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 ## Project Overview
 
 Mock-Users-Directory is a simple Angular application built to demonstrate user login functionality, authentication
-guard, and user
-management. It integrates `PrimeNg` for UI components and leverages Angular's routing system and signals for state
-management.
+guard, and user management. It integrates `PrimeNg` for UI components and leverages Angular's routing system and signals
+for state management.
 
 ### Key Features:
 
@@ -22,6 +21,16 @@ management.
   and better user interaction.
 - **Angular Signals**: Implements Angular signals for cleaner state management, avoiding the complexity of RxJS
   observables and subscriptions.
+- **Mock API Integration**: Fetches user data from a mock API endpoint to populate the user list.
+
+## API Usage
+
+The application uses the following mock API to fetch user data:
+
+- API Endpoint: [`https://jsonplaceholder.typicode.com/users`](https://jsonplaceholder.typicode.com/users)
+
+This API is used to simulate real-world user data, which is displayed in the user list component. Users can search
+through the list and view detailed information for each user by clicking on them.
 
 ## Development server
 
@@ -61,7 +70,8 @@ The application uses Angular's `RouterModule` to define and protect routes with 
 
 ## User List and Search
 
-- The user list component includes a search bar to filter through users.
+- The user list component fetches user data from the mock API (`https://jsonplaceholder.typicode.com/users`).
+- It includes a search bar to filter through the users.
 - Clicking on a user redirects to their detailed page (`/user/:id`).
 
 ## PrimeNg Usage
