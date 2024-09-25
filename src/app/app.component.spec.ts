@@ -26,9 +26,9 @@ describe('AppComponent', () => {
         expect(app).toBeTruthy();
     });
 
-    it(`should have as title 'UsersApp'`, () => {
+    it(`should have as title 'Mock-Users-Directory'`, () => {
         const fixture = TestBed.createComponent(AppComponent);
         const app = fixture.componentInstance;
-        expect(app.title).toEqual('UsersApp');
+        expect(app.title).toEqual('Mock-Users-Directory');
     });
 });

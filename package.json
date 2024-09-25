@@ -7,7 +7,7 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "serve:ssr:UsersApp": "node dist/users-app/server/server.mjs"
+    "serve:ssr:Mock-Users-Directory": "node dist/users-app/server/server.mjs"
   },
   "private": true,
   "dependencies": {

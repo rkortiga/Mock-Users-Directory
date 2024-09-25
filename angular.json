@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "UsersApp": {
+    "Mock-Users-Directory": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -79,10 +79,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "UsersApp:build:production"
+              "buildTarget": "Mock-Users-Directory:build:production"
             },
             "development": {
-              "buildTarget": "UsersApp:build:development"
+              "buildTarget": "Mock-Users-Directory:build:development"
             }
           },
           "defaultConfiguration": "development"
